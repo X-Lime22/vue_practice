@@ -1,7 +1,6 @@
 <template>
 
     <todo-list></todo-list>
-<!--    <todo-item></todo-item>-->
 
 <!--    <div class="card" v-cloak>-->
 <!--        <h1>{{ title }}: <span :style="{-->
@@ -50,8 +49,6 @@
     <!--        <input type="text" @keydown.enter="addItem" ref="myInput">-->
     <!--        <button class="btn green" @click="addItem">Добавить</button>-->
     <!--    </div>-->
-
-
 </template>
 
 
