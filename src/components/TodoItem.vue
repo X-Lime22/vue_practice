@@ -2,11 +2,32 @@
     <div class="todo-item">
         <h2>{{ note.name }}</h2>
         <ul>
-            <li v-for="checkbox in note.checkboxes" :key="note.id">
+            <li v-for="checkbox in filteredNotes" :key="checkbox.id">
                 <input type="checkbox" v-model="checkbox.done">
                 <span :class="{ done: checkbox.done }">{{ checkbox.text }}</span>
+                <button @click="btnDel(checkbox)" class="btn danger">Удалить</button>
+            </li>
+            <li>
+                <strong>Список дел: {{ note.checkboxes.length }}</strong>
             </li>
         </ul>
+
+        <div v-if="note.checkboxes.length === 0">Заметок пока нет</div>
+
+        <input type="text"
+                v-model="inputValue"
+                @keypress.enter="addNewNote"
+                >
+
+         <button class="btn" @click="addNewNote">Добавить</button>
+
+         <button @click="hideCompleted = !hideCompleted" v-if="note.checkboxes.length > 0">
+             {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+          </button>
+
+
+
+
 <!--        <ul class="list">-->
 <!--            <li class="list-item" v-for="(note, idx) in filteredNotes" :key="note.id">-->
 <!--                <input type="checkbox" v-model="note.done">-->
@@ -53,31 +74,31 @@ export default {
         }
     },
 
-    async mounted() {
-        const data = await localStorage.getItem("notes")
-        data ? this.notes = JSON.parse(data) : null
-    },
+    // async mounted() {
+    //     const data = await localStorage.getItem("checkboxes")
+    //     data ? this.notes.checkbox = JSON.parse(data) : null
+    // },
 
     methods: {
         addNewNote() {
             if (this.inputValue !== "") {
-                this.notes.push({ id: id++, text: this.inputValue, done: false })
+                this.note.checkboxes.push({ id: id++, text: this.inputValue, done: false })
                 this.inputValue = ""
 
-                localStorage.setItem("notes", JSON.stringify(this.notes))
+                localStorage.setItem("checkboxes", JSON.stringify(this.note.checkboxes))
             }
         },
-        btnDel(note) {
-            this.notes = this.notes.filter((t) => t !== note)
+        btnDel(checkbox) {
+            this.note.checkboxes = this.note.checkboxes.filter((t) => t !== checkbox)
 
-            localStorage.setItem("notes", JSON.stringify(this.notes))
+            localStorage.setItem("checkboxes", JSON.stringify(this.note.checkboxes))
         },
     },
     computed: {
         filteredNotes() {
             return this.hideCompleted
-                ? this.notes.filter((t) => !t.done)
-                : this.notes
+                ? this.note.checkboxes.filter((t) => !t.done)
+                : this.note.checkboxes
         }
     },
     watch: {

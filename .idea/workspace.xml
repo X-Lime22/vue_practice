@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f9e374d-d4b2-4b70-aa8e-892f36b72097" name="Changes" comment="">
+    <list default="true" id="7f9e374d-d4b2-4b70-aa8e-892f36b72097" name="Changes" comment="fastff">
+      <change afterPath="$PROJECT_DIR$/server/db.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/.TodoItem.vue.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TodoItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TodoList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/var/www/vue_practice",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
@@ -49,8 +60,18 @@
       <workItem from="1665659331374" duration="12918000" />
       <workItem from="1665730941600" duration="17683000" />
       <workItem from="1665991143925" duration="18466000" />
-      <workItem from="1666079295671" duration="17292000" />
+      <workItem from="1666079295671" duration="17827000" />
+      <workItem from="1666166105070" duration="6579000" />
+      <workItem from="1666254089171" duration="11748000" />
     </task>
+    <task id="LOCAL-00001" summary="fast">
+      <created>1666104474810</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666104474810</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -66,5 +87,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fast" />
+    <option name="LAST_COMMIT_MESSAGE" value="fast" />
   </component>
 </project>

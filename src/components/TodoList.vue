@@ -9,7 +9,7 @@
 
 
             <todo-item v-for="note in notes" :note="note" class="todo-list-item">
-                <h2>Заметка 1</h2>
+<!--                <h2>Заметка 1</h2>-->
 <!--                <TodoItem/>-->
             </todo-item>
 
@@ -31,37 +31,43 @@
 <script>
 
 import TodoItem from "./TodoItem.vue";
+import axios from 'axios'
 
 let id = 0
+let response
+
 export default {
     components: {TodoItem},
     name: "TodoList",
+    mounted() {
+        axios
+            .get('http://localhost:3001/notes')
+            .then(response => this.notes = response.data)
+    },
+
 
     data() {
         return {
             inputValue: "",
             hideCompleted: false,
-            notes: [
-                {
-                    name: 'test',
-                    checkboxes: [
-                        {id: id++, text: 'Learn Vue', done: true},
-                        {id: id++, text: 'Learn English', done: true}
-                    ]
-                },
-                {
-                    name: 'test2',
-                    checkboxes: [
-                        {id: id++, text: 'Learn Vue', done: true},
-                    ]
-                },
-                // { id: id++, text: 'Задача 1 заметки 1', done: false,
-                // lists: [
-                //     { id: id++, text: "Learn props" },
-                //     { id: id++, text: "Learn async/await" },
-                // ]
-                // },
-            ],
+            notes: [],
+
+            // notes: [
+            //     {
+            //         name: "test",
+            //         checkboxes: [
+            //             {id: id++, text: "Learn Vue", done: true},
+            //             {id: id++, text: "Learn English", done: true}
+            //         ]
+            //     },
+            //     {
+            //         name: "test2",
+            //         checkboxes: [
+            //             {id: id++, text: "Learn Vue", done: true}
+            //         ]
+            //     }
+            // ],
+
             person: {
                 fName: "John",
                 lName: "Sheridan",
