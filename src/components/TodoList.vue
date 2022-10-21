@@ -9,7 +9,7 @@
 
             </todo-item>
 
-            <a href="">Создать новую заметку</a>
+            <button @click="postPost">Создать новую заметку</button>
         </div> <!-- todo-list -->
     </fieldset>
 
@@ -37,6 +37,13 @@ export default {
             inputValue: "",
             hideCompleted: false,
             notes: []
+        }
+    },
+
+    methods: {
+        postPost() {
+            axios.post('http://localhost:3001/notes', { name: `test${this.notes.length}` })
+                .then(response => this.notes.push(response.data.id))
         }
     },
 }

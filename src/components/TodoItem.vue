@@ -8,22 +8,22 @@
                 <button @click="CheckboxDelete(checkbox)" class="btn danger">Удалить</button>
             </li>
             <li>
-                <strong>Список дел: {{ note.checkboxes.length }}</strong>
+                <strong>Список дел: {{ note.checkboxes?.length }}</strong>
             </li>
         </ul>
 
-        <div v-if="note.checkboxes.length === 0">Заметок пока нет</div>
+        <div v-if="note.checkboxes?.length === 0">Заметок пока нет</div>
 
         <input type="text"
                 v-model="inputValue"
                 @keypress.enter="addNewCheckbox"
                 >
 
-         <button class="btn" @click="addNewCheckbox">Добавить</button>
+        <button class="btn" @click="addNewCheckbox">Добавить</button>
 
-         <button @click="hideCompleted = !hideCompleted" v-if="note.checkboxes.length > 0">
+        <button @click="hideCompleted = !hideCompleted" v-if="note.checkboxes?.length > 0">
              {{ hideCompleted ? 'Show all' : 'Hide completed' }}
-          </button>
+        </button>
 
     </div>
 </template>
