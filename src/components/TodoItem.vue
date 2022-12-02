@@ -1,11 +1,12 @@
 <template>
     <div class="todo-item">
         <h2>{{ note.name }}</h2>
+
         <ul>
             <li v-for="checkbox in filteredCheckboxes" :key="checkbox.id">
                 <input type="checkbox" v-model="checkbox.done">
                 <span :class="{ done: checkbox.done }">{{ checkbox.text }}</span>
-                <button @click="CheckboxDelete(checkbox)" class="btn danger">Удалить</button>
+                <button @click="checkboxDelete(checkbox)" class="btn danger">Удалить</button>
             </li>
             <li>
                 <strong>Список дел: {{ note.checkboxes?.length }}</strong>
@@ -24,6 +25,8 @@
         <button @click="hideCompleted = !hideCompleted" v-if="note.checkboxes?.length > 0">
              {{ hideCompleted ? 'Show all' : 'Hide completed' }}
         </button>
+
+        <button class="block" @click="$emit('postDeleteNote', note.id)">Удалить заметку</button>
 
     </div>
 </template>
@@ -47,9 +50,10 @@ export default {
                 this.inputValue = ""
             }
         },
-        CheckboxDelete(checkbox) {
+        checkboxDelete(checkbox) {
             this.note.checkboxes = this.note.checkboxes.filter((t) => t !== checkbox)
         },
+
     },
     computed: {
         filteredCheckboxes() {
@@ -66,15 +70,23 @@ export default {
         }
     },
 
+    emit: [
+      'postDeleteNote'
+    ],
+
     props: {
         note: {
             type: Object,
-        }
+        },
     }
 }
 </script>
 
 
 <style scoped>
-
+    .block {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+    }
 </style>

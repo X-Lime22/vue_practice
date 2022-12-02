@@ -1,7 +1,7 @@
 <template>
 
-    <todo-list></todo-list>
-
+<!--    <todo-list></todo-list>-->
+    <router-view></router-view>
 <!--    <div class="card" v-cloak>-->
 <!--        <h1>{{ title }}: <span :style="{-->
 <!--      color: inputValue.length < 2 ? 'darkred' : 'darkblue',-->

@@ -5,11 +5,11 @@
         <legend>Задачи</legend>
         <div class="todo-list">
 
-            <todo-item v-for="note in notes" :note="note" class="todo-list-item">
-
+            <todo-item @postDeleteNote="postDeleteNote" v-for="(note, index) in notes" :note="note" class="todo-list-item">
+                    {{ index }}
             </todo-item>
 
-            <button @click="postPost">Создать новую заметку</button>
+            <button @click="postAddNote">Создать заметку</button>
         </div> <!-- todo-list -->
     </fieldset>
 
@@ -22,13 +22,12 @@
 import TodoItem from "./TodoItem.vue";
 import axios from 'axios'
 
-let response
 export default {
     components: {TodoItem},
     name: "TodoList",
     mounted() {
         axios
-            .get('http://localhost:3001/notes')
+            .get('http://localhost:3001/notes?_embed=checkboxes')
             .then(response => this.notes = response.data)
     },
 
@@ -36,14 +35,27 @@ export default {
         return {
             inputValue: "",
             hideCompleted: false,
-            notes: []
+            notes: [],
+            DateCurrentId: null
         }
     },
 
     methods: {
-        postPost() {
-            axios.post('http://localhost:3001/notes', { name: `test${this.notes.length}` })
-                .then(response => this.notes.push(response.data.id))
+        async postAddNote() {
+            //деструктуризация
+            const {data} = await axios
+                .post('http://localhost:3001/notes', {
+                name: `test${this.notes.length}`
+            })
+
+            data.checkboxes = []
+
+            this.notes.push(data)
+        },
+
+        postDeleteNote(id) {
+            axios
+                .delete(`http://localhost:3001/notes/${id}`)
         }
     },
 }
